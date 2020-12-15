@@ -21,7 +21,7 @@ public class Find extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		String eBtn = request.getParameter("EBTN"); // イベントボタン
 		// SOULボタンを押下した場合
-		if ("5".equals(eBtn)) {
+		if ("6".equals(eBtn)) {
 		// セッション情報.ログインユーザID　でユーザ情報を取得する
 
         String sessionLoginUserID = session.getAttribute("userid").toString();
@@ -51,14 +51,14 @@ public class Find extends HttpServlet {
 			// show画面へ遷移
 			response.sendRedirect("/show.jsp");
 		}
-		// ログオフボタンを押下した場合
-		} else if ("6".equals(eBtn)) {
+		// 基本情報修正ボタン押下場合
+		} else if ("5".equals(eBtn)) {
 
-			// register画面へ遷移
+			//register画面へ遷移
 			response.sendRedirect("/register.jsp");
 
 		}else if ("7".equals(eBtn)){
-
+			// ログオフボタンを押下した場合
 			session.removeAttribute("userid");
 			session.invalidate();
 		}
