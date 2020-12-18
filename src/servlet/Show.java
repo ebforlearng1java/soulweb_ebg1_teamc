@@ -32,6 +32,13 @@ public class Show extends HttpServlet {
 		String LoginUserHobby4 = (String) session.getAttribute("sessionLoginUserHOBBY4");
 		String LoginUserHobby5 = (String) session.getAttribute("sessionLoginUserHOBBY5");
 		String LoginUserHobby6 = (String) session.getAttribute("sessionLoginUserHOBBY6");
+		String eBtn = request.getParameter("EBTN"); // イベントボタン
+
+		// イベントボタンが"9"の場合、find画面へ遷移
+		if ("9".equals(eBtn)) {
+				response.sendRedirect("/find.jsp");
+
+		}
 
 		// 同生年月日　or 同興味　or　同星座　or 同場所のユーザListセッションを取得する
 		ArrayList<FindLogicDTO> findedList = (ArrayList<FindLogicDTO>) session.getAttribute("findlist");
@@ -52,7 +59,7 @@ public class Show extends HttpServlet {
 		for (int i = 0; i < findedList.size(); i++) {
 			showDto = showList.get(i);
 			// イベントボタン
-			String eBtn = request.getParameter("EBTN");
+			eBtn = request.getParameter("EBTN");
 			// 名称
 			showDto.setSoul_name(findedList.get(i).getSoul_name());
 			// payボタンを押下した場合

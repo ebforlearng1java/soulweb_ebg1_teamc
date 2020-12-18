@@ -59,6 +59,13 @@ function submitLogic(btnNo) {
         </tr>
         <%} %>
 
+        <tr>
+            <th colspan="3">
+             <input id="eBtn" name="EBTN" type="hidden" value="<%=request.getAttribute("EBTN")%>" />
+             <button type="button" onclick="submitLogic(9)" style='background-color:green'>戻る</button>
+
+            </th>
+        </tr>
     </table>
 </div>
 <form action="show" method="post">
